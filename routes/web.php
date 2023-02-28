@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\postsController;
 use App\Http\Controllers\desController;
+use App\Http\Controllers\AuthorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,10 @@ Route::put('edit/{id}', [postsController::class , "edit"])->name('edit');
 
 Route::post('store', [postsController::class , "store"])->name('store');
 
-Route::delete('/viePage/delete/{id}', [postsController::class , "destroy"])->name('destroy');
+Route::delete('/viewPage/delete/{id}', [postsController::class , "destroy"])->name('destroy');
+
+
+Route::get('/viewAuthor',[AuthorController::class , "viewAuthor"])->name("viewAuthor");
+
+Route::get('viewAuthor/{id}', [AuthorController::class , "viewAuthorDetails"])->name('viewAuthorDetails');
+

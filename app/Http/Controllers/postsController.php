@@ -38,7 +38,7 @@ class postsController extends Controller
         // $validated = $request->validate([
         //     'tilte' => 'required',
         //     'postedBy' => 'required',
-        //     'createdAt' => 'required',
+        //     'created_at' => 'required',
         //     'description' => 'required',
         // ]);
 

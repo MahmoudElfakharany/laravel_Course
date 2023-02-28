@@ -34,25 +34,25 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Posted By</th>
-                    <th>Created By</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
                     <th>Action</th>
 
                 </tr>
             </thead>
-            @foreach ($posts as $post)
+            @foreach ($authors as $author)
                 <tr>
-                    <td>{{ $post->title }}</td>
-                    <td>{{ $post->postedBy }}</td>
-                    <td>{{ $post->created_at }}</td>
+                    <td>{{ $author->id }}</td>
+                    <td>{{ $author->name }}</td>
+                    <td>{{ $author->age }}</td>
                     <td>
-                        <div> <a href="{{ route('despage', $post->id) }}" class="btn btn-success"
+                        <div> <a href="{{ route('viewAuthorDetails', $author->id) }}" class="btn btn-success"
                                 style="display: inline-block">VIEW</a>
-                            <form action="{{ route('update', $post->id) }}" style="display: inline-block;">
+                            <form action="{{ route('update', $author->id) }}" style="display: inline-block;">
                                 <button class="btn btn-success">UPDATE</button>
                             </form>
-                            <form action="{{ route('destroy', $post->id) }}" method="POST"
+                            <form action="{{ route('destroy', $author->id) }}" method="author"
                                 style="display: inline-block">
                                 @method('DELETE')
                                 @csrf()

@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class posts extends Model
+class author extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-    public $timestamps = false;
-    function author()
+    function posts()
     {
-        return $this->belongsTo(author::class);
+        return $this->hasMany(posts::class);
     }
 }

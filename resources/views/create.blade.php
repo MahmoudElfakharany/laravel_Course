@@ -35,9 +35,9 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="form-label" for="createdAt">Created At</label>
-                        <input class="form-control" type="text" name="createdAt">
-                        @error('createdAt')
+                        <label class="form-label" for="created_at">Created At</label>
+                        <input class="form-control" type="text" name="created_at">
+                        @error('created_at')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
