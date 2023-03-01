@@ -16,18 +16,22 @@
     @extends('layouts.app')
     <div style="position: relative; top:70px;">
         <fieldset style="border: 2px solid black;">
-            <legend>user</legend>
+            <legend>USER</legend>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>NAME</th>
-                        <th>AGE</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Joined in</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>{{ $users->id }}</td>
                         <td>{{ $users->name }}</td>
-                        <td>{{ $users->age }}</td>
+                        <td>{{ $users->email }}</td>
+                        <td>{{ $users->created_at }}</td>
                     </tr>
                 </tbody>
             </table>

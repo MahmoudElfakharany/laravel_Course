@@ -31,6 +31,7 @@
                         <label class="form-label" for="user_id">User ID</label>
 
                         {{-- <input class="form-control" type="text" name="user_id"> --}}
+
                         <select name="User_id" class="form-control" id="">
                             @foreach ($users as $user)
                                 <option>{{ $user->id }}</option>
