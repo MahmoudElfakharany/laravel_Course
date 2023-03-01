@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('postedBy')->references('id')->on('authour');
+            $table->integer('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->string('description');
         });

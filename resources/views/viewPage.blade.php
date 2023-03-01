@@ -13,8 +13,8 @@
     table {
         /* border-collapse: collapse; */
         /* width: 500px; */
-        position: relative;
-        top: 200px;
+        /* position: relative;
+        top: 200px; */
     }
 
 
@@ -25,12 +25,15 @@
 </style>
 
 <body>
+    @extends('layouts.app')
 
-    <div class="d-flex flex-col">
-        <a href="{{ route('create') }}" class="btn btn-primary">CREATE</a>
+    <div class="container col-12 pt-4" style="position: relative; top:50px;">
+        <div class="d-flex flex-col">
+            <h3>POSTS</h3>
+        </div>
     </div>
 
-    <div>
+    <div class="container mt-3" style="position: relative; top:50px;">
         <table class="table">
             <thead>
                 <tr>
@@ -44,7 +47,7 @@
             @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->title }}</td>
-                    <td>{{ $post->postedBy }}</td>
+                    <td>{{ $post->user->name }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>
                         <div> <a href="{{ route('despage', $post->id) }}" class="btn btn-success"
@@ -64,6 +67,10 @@
             @endforeach
         </table>
     </div>
+    <div class="container" style="position: relative; top:50px">
+        {{ $posts->links() }}
+    </div>
+
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\author;
+use App\Models\user;
 
 
 /**
@@ -21,8 +21,9 @@ class PostsFactory extends Factory
         return [
             //
             'title'=>fake()->name(),
-            'postedBy'=>author::inRandomOrder()->first()->id,
+            'user_id'=>user::inRandomOrder()->first()->id,
             'created_at'=>fake()->dateTime(),
+            'updated_at'=>fake()->dateTime(),
             'description'=>fake()->company()
 
         ];

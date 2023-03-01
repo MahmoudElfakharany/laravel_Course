@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\models\posts;
+use App\models\user;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class postsController extends Controller
 {
     function viewPosts (){
 
-        $posts = posts::get();
+        $posts = posts::paginate(10);
 
         return view ("viewPage",["posts" => $posts]);
     }
@@ -20,7 +21,9 @@ class postsController extends Controller
         return view ("despage",["posts" => $posts]);
     }
     function create (){
-        return view ("create");
+        $users = user::get();
+
+        return view ("create",["users" => $users]);
     }
     function update ($id){
         $posts = posts::find($id);
@@ -37,7 +40,7 @@ class postsController extends Controller
     {
         // $validated = $request->validate([
         //     'tilte' => 'required',
-        //     'postedBy' => 'required',
+        //     'user_id' => 'required',
         //     'created_at' => 'required',
         //     'description' => 'required',
         // ]);
@@ -51,4 +54,5 @@ class postsController extends Controller
         $posts->delete();
         return redirect()->route("viewPage");
     }
+
 }

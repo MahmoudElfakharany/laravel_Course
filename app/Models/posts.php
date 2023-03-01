@@ -10,8 +10,8 @@ class posts extends Model
     use HasFactory;
     protected $guarded = [];
     public $timestamps = false;
-    function author()
+    function user()
     {
-        return $this->belongsTo(author::class);
+        return $this->belongsTo(user::class);
     }
 }

@@ -11,9 +11,10 @@
 </head>
 
 <body>
+    @extends('layouts.app')
 
 
-    <div class="col container mt-4">
+    <div class="col container mt-4"  style="position: relative; top:70px;" >
 
         <form action="{{ route('edit', $posts->id) }}" method="POST">
             @method('PUT')
@@ -29,10 +30,10 @@
                     </div>
                     <div>
 
-                        <label class="form-label" for="postedBy">Posted By</label>
+                        <label class="form-label" for="user_id">Posted By</label>
 
-                        <input class="form-control" type="text" name="postedBy" value="{{ $posts->postedBy }}">
-                        @error('postedBy')
+                        <input class="form-control" type="text" name="user_id" value="{{ $posts->user_id }}">
+                        @error('user_id')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

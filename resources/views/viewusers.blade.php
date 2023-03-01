@@ -13,8 +13,8 @@
     table {
         /* border-collapse: collapse; */
         /* width: 500px; */
-        position: relative;
-        top: 200px;
+        /* position: relative; */
+        /* top: 200px; */
     }
 
 
@@ -25,44 +25,51 @@
 </style>
 
 <body>
-
-    <div class="d-flex flex-col">
-        <a href="{{ route('create') }}" class="btn btn-primary">CREATE</a>
+    @extends('layouts.app')
+    <div class="container col-12 pt-4" style="position: relative; top:50px;">
+        <div class="d-flex flex-col">
+            <h3>USERS</h3>
+        </div>
     </div>
 
-    <div>
+    <div class="container mt-4" style="position: relative; top:30px;">
         <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Age</th>
+                    <th>E-mail</th>
+                    <th>Created At</th>
                     <th>Action</th>
 
                 </tr>
             </thead>
-            @foreach ($authors as $author)
+            @foreach ($users as $user)
                 <tr>
-                    <td>{{ $author->id }}</td>
-                    <td>{{ $author->name }}</td>
-                    <td>{{ $author->age }}</td>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->created_at }}</td>
                     <td>
-                        <div> <a href="{{ route('viewAuthorDetails', $author->id) }}" class="btn btn-success"
+                        <div> <a href="{{ route('viewusersDetails', $user->id) }}" class="btn btn-success"
                                 style="display: inline-block">VIEW</a>
-                            <form action="{{ route('update', $author->id) }}" style="display: inline-block;">
+                            {{-- <form action="{{ route('update', $user->id) }}" style="display: inline-block;">
                                 <button class="btn btn-success">UPDATE</button>
                             </form>
-                            <form action="{{ route('destroy', $author->id) }}" method="author"
+                            <form action="{{ route('destroy', $user->id) }}" method="user"
                                 style="display: inline-block">
                                 @method('DELETE')
                                 @csrf()
-                                <button class="btn btn-success" type="submit">DELETE</button>
+                                <button class="btn btn-success" type="submit">DELETE</button> --}}
                             </form>
                         </div>
                     </td>
                 </tr>
             @endforeach
         </table>
+    </div>
+    <div class="container" style="position: relative; top:40px">
+        {{ $users->links() }}
     </div>
 </body>
 

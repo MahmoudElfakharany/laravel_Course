@@ -11,9 +11,10 @@
 </head>
 
 <body>
+    @extends('layouts.app')
 
 
-    <div class="col container">
+    <div class="col container" style="position: relative; top:70px;">
         <form action="{{ route('store') }}" method="POST">
             @csrf
             <div class="d-flex flex-column justify-content-center align-items-center">
@@ -27,10 +28,16 @@
                     </div>
                     <div>
 
-                        <label class="form-label" for="postedBy">Posted By</label>
+                        <label class="form-label" for="user_id">User ID</label>
 
-                        <input class="form-control" type="text" name="postedBy">
-                        @error('postedBy')
+                        {{-- <input class="form-control" type="text" name="user_id"> --}}
+                        <select name="User_id" class="form-control" id="">
+                            @foreach ($users as $user)
+                                <option>{{ $user->id }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('user_id')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
